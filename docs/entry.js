@@ -23,7 +23,10 @@ window.addEventListener('load', function () {
 	}
       },
       pixi: {
-	wait: (f) => { setTimeout(() => { f() } , 6000) },
+	next: (f) => {
+	  curBg.eventMode = 'static';
+	  curBg.on('click', (e) => { f() });
+	},
 	setup() {
 	  return app.init({ resizeTo: window }).then(() => document.body.appendChild(app.canvas));
 	},
@@ -51,6 +54,7 @@ window.addEventListener('load', function () {
 	  bgSp.y = app.screen.height / 2;
 
 	  app.stage.addChildAt(bgSp, BG_INDEX);
+
 	  curBg = bgSp;
 	},
 	changeCh(ch) {
@@ -82,13 +86,14 @@ window.addEventListener('load', function () {
 	  diSp.height = diHeight;
 	  diSp.alpha = 0.8;
 	  diContainer.addChild(diSp);
+
 	  curDialogContainer = diContainer;
 	},
 	addSound(a, src) {
 	  PIXI.sound.add(a, src);
 	},
-	playVoice(a, next) {
-	  PIXI.sound.play(a , { complete: function() { next() } });
+	playVoice(a) {
+	  PIXI.sound.play(a);
 	},
 	playBgm(bgm) {
 	  PIXI.sound.play(bgm, { loop: true });

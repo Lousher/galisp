@@ -1,6 +1,10 @@
 (define-module (ffi pixi)
   #:use-module (hoot ffi)
-  #:export (setup %thenSuccess addAsset loadAssets changeBg changeCh changeDialog changeText addSound playVoice wait console-log playBgm))
+  #:export (setup %thenSuccess addAsset loadAssets changeBg changeCh changeDialog changeText addSound playVoice console-log playBgm next))
+
+(define-foreign next
+  "pixi" "next"
+  (ref extern) -> none)
 
 (define-foreign playBgm
   "pixi" "playBgm"
@@ -9,10 +13,6 @@
 (define-foreign console-log
   "console" "log"
  (ref string) -> none)
-
-(define-foreign wait
-  "pixi" "wait"
- (ref extern) -> none)
 
 (define-foreign setup
   "pixi" "setup"
@@ -24,11 +24,11 @@
 
 (define-foreign %playVoice
   "pixi" "playVoice"
-  (ref string) (ref extern) -> none)
+  (ref string) -> none)
 
 (define playVoice
-  (lambda (audio f)
-    (%playVoice audio (procedure->external f))))
+  (lambda (audio)
+    (%playVoice audio)))
 
 (define-foreign %thenSuccess
   "promise" "thenSuccess"
