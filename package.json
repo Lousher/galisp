@@ -9,7 +9,7 @@
   "scripts": {
     "start": "electron docs",
     "dev": "npx serve docs",
-    "build": "lima guild compile-wasm -L ./docs/ -o main.wasm main.scm && mv main.wasm ./docs/"
+    "build": "lima guild compile-wasm -L . -o main.wasm main.scm && mv main.wasm ./docs/"
   },
   "dependencies": {},
   "devDependencies": {
