@@ -25,7 +25,7 @@ window.addEventListener('load', function () {
       pixi: {
 	next: (f) => {
 	  curBg.eventMode = 'static';
-	  curBg.on('click', (e) => { f() });
+	  curBg.on('pointerdown', (e) => { f() });
 	},
 	setup() {
 	  return app.init({ resizeTo: window }).then(() => document.body.appendChild(app.canvas));
