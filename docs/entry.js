@@ -87,16 +87,11 @@ window.addEventListener('load', function () {
 	addSound(a, src) {
 	  PIXI.sound.add(a, src);
 	},
-	playSound(a, next) {
+	playVoice(a, next) {
 	  PIXI.sound.play(a , { complete: function() { next() } });
 	},
-	changeBgm(bgm) {
-	  PIXI.sound.Sound.from({ url: bgm,
-	    autoPlay: true,
-	    loop: true,
-	    complete: function() {
-	      console.log("Sound Finished")
-	    }})
+	playBgm(bgm) {
+	  PIXI.sound.play(bgm, { loop: true });
 	},
 	changeText(str) {
 	  curDialogContainer.removeChild(curText);

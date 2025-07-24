@@ -7,8 +7,8 @@
   "author": "Lousher",
   "license": "MIT",
   "scripts": {
-    "start": "electron .",
-    "dev": "npx serve ."
+    "start": "electron docs",
+    "dev": "npx serve docs"
   },
   "dependencies": {},
   "devDependencies": {

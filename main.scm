@@ -5,7 +5,7 @@
   `(("bg-a" . "assets/bg/a.jpg")
     ("bg-b" . "assets/bg/b.jpg")
     ("ch-a" . "assets/character/0940.png")
-    ("ch-b" . "assets/character/0941.png")    
+    ("ch-b" . "assets/character/0941.png")
     ("di-a" . "assets/dialog/a.jpg")
     ("Circle" . "assets/font/Circle.otf")))
 
@@ -22,14 +22,17 @@
     (changeBg "bg-a")
     (changeCh "ch-a")
     (changeDialog "di-a")
-    (playSound "trip" (procedure->external (lambda () (console-log "Finished"))))
+    (playBgm "trip")
     (changeText "看上去真的很好诶？用Scheme真是用对了！")
-    (playSound "va-4" (procedure->external (lambda ()
-				 (changeCh "ch-b")
-				 (changeBg "bg-b")
-				 (playSound "va-5" (procedure->external (lambda () (console-log "va finished"))))
-				 (changeText "第二个场景也很好的样子？"))))
+    (playVoice "va-4" second-scene)
     ))
+
+(define second-scene
+  (lambda ()
+    (changeBg "bg-b")
+    (changeCh "ch-b")
+    (playVoice "va-5" (lambda () (console-log "Second Finished")))
+    (changeText "你真是太厉害啦～这已经是第二个场景了！")))
 
 (%thenSuccess
  (%thenSuccess (setup)
