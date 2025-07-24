@@ -1,0 +1,17 @@
+{
+  "name": "galisp",
+  "version": "1.0.0",
+  "description": "Lisp for Galgame",
+  "main": "index.js",
+  "repository": "git@sensei:Lousher/galisp.git",
+  "author": "Lousher",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "dev": "npx serve ."
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "electron": "^37.2.3"
+  }
+}
