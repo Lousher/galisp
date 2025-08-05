@@ -77,4 +77,3 @@
  (%thenSuccess (setup)
 	       (procedure->external loadAssets))
  (procedure->external entry))
-

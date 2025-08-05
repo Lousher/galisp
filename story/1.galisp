@@ -1,0 +1,39 @@
+(use-modules (script syntax))
+
+(character yuki
+	   (smile "assets/character/0940.png")
+	   (shy "assets/character/0941.png")
+	   (shock "assets/character/0939.png"))
+
+(bg station
+       (morning "assets/bg/a.jpg")
+       (afternoon "assets/bg/b.jpg")
+       (evening "assets/bg/c.jpg")
+       (midnight "assets/bg/d.jpg"))
+
+(bgm (midnight "assets/bgm/midnight-trip.mp3"))
+
+(va (va1 "assets/va/1.ogg")
+    (va2 "assets/va/2.ogg")
+    (va3 "assets/va/3.ogg"))
+
+(scene "test1"
+       (station morning)
+       (midnight play)
+       (yuki smile va1 "原来如此，看上去还不坏嘛。")
+       (me "感谢夸奖，不过还有很多不足之处就是了。")
+       (next "test2"))
+
+(scene "test2"
+       (station afternoon)
+       (midnight pause)
+       (yuki shy va2 "可以活用于下一次的经验中。")
+       (me "看上去是这样子。")
+       (next "test3"))
+
+(scene "test3"
+       (station midnight)
+       (midnight play)
+       (yuki shock va3 "不过，你最近都没有好好吃饭对吧！")
+       (me "果然还是被你发现了..."))
+
